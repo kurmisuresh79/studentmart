@@ -3,14 +3,11 @@
     "version": "1.0.0",
     "description": "Frontend for StudentMart",
     "scripts": {
-      "dev": "vite",
-      "build": "vite build",
-      "preview": "vite preview"
-    },
-    "dependencies": {
-      
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
     },
     "devDependencies": {
-      "vite": "^5.2.0"  
+        "vite": "^5.4.18"
     }
-  }
+}
