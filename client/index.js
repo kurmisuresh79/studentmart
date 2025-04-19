@@ -1,11 +1,10 @@
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "https://studentmart.onrender.com/api";
+console.log("API Base URL:", API_BASE);
 console.log('All available env vars:', import.meta.env)
 console.log('API Base URL:', import.meta.env.VITE_API_BASE_URL)
 
-// Handle Google login
-// Google Sign-In callback
-function handleGoogleLogin(response) {
-    console.log('Google login response:', response);
+window.handleGoogleLogin = function(response) {
+    console.log("Google login response:", response);
 
     fetch(`${API_BASE}/auth/google-login`, {
         method: 'POST',
@@ -19,7 +18,6 @@ function handleGoogleLogin(response) {
     })
     .catch(err => console.error("Login error:", err));
 }
-
 // Global variables
 let products = [];
 let cart = [];
@@ -36,18 +34,18 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (token) {
             try {
                 // Verify token and get user data
-                const userResponse = await fetch('${API_BASE}/api/auth/me', {
+                const userResponse = await fetch(`${API_BASE}/auth/me`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
-                
+                        
                 if (userResponse.ok) {
                     const userData = await userResponse.json();
                     currentUser = userData.username;
                     
                     // Load cart data
-                    const cartResponse = await fetch('${API_BASE}/api/cart', {
+                    const cartResponse = await fetch(`${API_BASE}/cart`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
@@ -64,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         
         // Load products
-        const productsResponse = await fetch('${API_BASE}/api/products');
+        const productsResponse = await fetch(`${API_BASE}/products`);
         if (productsResponse.ok) {
             products = await productsResponse.json();
         }
@@ -153,7 +151,7 @@ async function login() {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/auth/login', {
+        const response = await fetch(`${API_BASE}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
@@ -167,7 +165,7 @@ async function login() {
             showAlert('Login successful!', 'success');
             
             // Reload data after login
-            const cartResponse = await fetch('${API_BASE}/api/cart', {
+            const cartResponse = await fetch(`${API_BASE}/cart`, {
                 headers: {
                     'Authorization': `Bearer ${data.token}`
                 }
@@ -208,7 +206,7 @@ async function register() {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/auth/register', {
+        const response = await fetch(`${API_BASE}/auth/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, password })
@@ -272,7 +270,7 @@ async function addProduct() {
             formData.append('images', imageInput.files[i]);
         }
         
-        const response = await fetch('${API_BASE}/api/products', {
+        const response = await fetch(`${API_BASE}/products`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -344,7 +342,7 @@ async function addToCart(productId, quantity = 1) {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/cart', {
+        const response = await fetch(`${API_BASE}/cart`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -434,7 +432,7 @@ async function loadProfile() {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/auth/me', {
+        const response = await fetch(`${API_BASE}/auth/me`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
@@ -468,7 +466,7 @@ async function updateProfile() {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/auth/me', {
+        const response = await fetch(`${API_BASE}/auth/me`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

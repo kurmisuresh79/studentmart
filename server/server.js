@@ -6,10 +6,12 @@ require('dotenv').config();
 const app = express();
 
 // CORS Middleware for Vercel
-app.use(cors({
-    origin: 'https://studentmart.vercel.app',
-    credentials: true
-}));
+app.use(cors(
+    // {
+//     origin: 'https://studentmart.vercel.app',
+//     credentials: true
+// })
+));
 
 app.use(express.json());
 
