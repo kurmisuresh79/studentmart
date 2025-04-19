@@ -15,3 +15,15 @@ git push -u origin main
 git remote add origin https://github.com/kurmisuresh79/test.git
 git branch -M main
 git push -u origin main
+
+# Restart Vite (cd client && npm run dev)
+# Restart Render (redeploy or manual restart)
+# Verify .env variables are set on both Vercel and Render
+# Test live frontend again
+
+# Rebuild your frontend:
+# In terminal:
+# cd client
+# npm run build
+
+# npm install express mongoose cors bcryptjs jsonwebtoken multer dotenv
