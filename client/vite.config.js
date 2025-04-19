@@ -2,6 +2,9 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  // This ensures Vite will expose all env variables prefixed with VITE_
+  envPrefix: 'VITE_',
+  
   server: {
     proxy: {
       '/api': {
@@ -11,7 +14,9 @@ export default defineConfig({
       }
     }
   },
-  define: {
-    'process.env': {}
-  }
+  
+  // Remove or modify the define block as it's interfering with env variables
+  // define: {
+  //   'process.env': {}
+  // }
 })

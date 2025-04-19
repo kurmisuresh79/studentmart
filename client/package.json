@@ -1,0 +1,16 @@
+{
+    "name": "client",
+    "version": "1.0.0",
+    "description": "Frontend for StudentMart",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview"
+    },
+    "dependencies": {
+      
+    },
+    "devDependencies": {
+      "vite": "^5.2.0"  
+    }
+  }

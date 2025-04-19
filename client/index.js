@@ -1,4 +1,24 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://studentmart.onrender.com";
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "https://studentmart.onrender.com/api";
+console.log('All available env vars:', import.meta.env)
+console.log('API Base URL:', import.meta.env.VITE_API_BASE_URL)
+
+// Handle Google login
+// Google Sign-In callback
+function handleGoogleLogin(response) {
+    console.log('Google login response:', response);
+
+    fetch(`${API_BASE}/auth/google-login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: response.credential }),
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log("Login success:", data);
+        // Example: Save JWT/token, redirect user, etc.
+    })
+    .catch(err => console.error("Login error:", err));
+}
 
 // Global variables
 let products = [];
@@ -798,8 +818,3 @@ function checkout() {
     showAlert('Checkout functionality will be implemented soon!', 'info');
 }
 
-// Handle Google login
-function handleGoogleLogin(response) {
-    console.log('Google login response:', response);
-    // Implement Google login logic here
-}
