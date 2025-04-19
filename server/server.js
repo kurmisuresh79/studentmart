@@ -5,25 +5,23 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// CORS Middleware for Vercel
+app.use(cors({
+    origin: 'https://studentmart.vercel.app',
+    credentials: true
+}));
+
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/studentmart"
-//    {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   serverSelectionTimeoutMS: 5000
-// }
-)
-.then(() => console.log("Connected to MongoDB"))
-.catch(err => {
-  console.error("MongoDB connection error:", err.message);
-  process.exit(1); // Exit if DB connection fails
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch(err => {
+    console.error("❌ MongoDB connection error:", err.message);
+    process.exit(1);
 });
 
-// Routes
+// API Routes
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 const cartRoutes = require('./routes/cart');
@@ -32,19 +30,69 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
 
-// Static files
+// Serve uploaded files
 app.use('/uploads', express.static('uploads'));
 
-// Basic Route
+// Base route
 app.get('/', (req, res) => {
-  res.send("Student Mart Backend");
+    res.send("🎓 Student Mart Backend is Live!");
 });
 
-// Start Server
+// Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
+
+
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const cors = require('cors');
+// require('dotenv').config();
+
+// const app = express();
+
+// // Middleware
+// app.use(cors());
+// app.use(express.json());
+
+// // MongoDB Connection
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/studentmart"
+// //    {
+// //   useNewUrlParser: true,
+// //   useUnifiedTopology: true,
+// //   serverSelectionTimeoutMS: 5000
+// // }
+// )
+// .then(() => console.log("Connected to MongoDB"))
+// .catch(err => {
+//   console.error("MongoDB connection error:", err.message);
+//   process.exit(1); // Exit if DB connection fails
+// });
+
+// // Routes
+// const authRoutes = require('./routes/auth');
+// const productRoutes = require('./routes/products');
+// const cartRoutes = require('./routes/cart');
+
+// app.use('/api/auth', authRoutes);
+// app.use('/api/products', productRoutes);
+// app.use('/api/cart', cartRoutes);
+
+// // Static files
+// app.use('/uploads', express.static('uploads'));
+
+// // Basic Route
+// app.get('/', (req, res) => {
+//   res.send("Student Mart Backend");
+// });
+
+// // Start Server
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
 
 
 

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (token) {
             try {
                 // Verify token and get user data
-                const userResponse = await fetch('${API_BASE}/api/auth/me', {
+                const userResponse = await fetch('http://localhost:5000/api/auth/me', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     currentUser = userData.username;
                     
                     // Load cart data
-                    const cartResponse = await fetch('${API_BASE}/api/cart', {
+                    const cartResponse = await fetch('http://localhost:5000/api/cart', {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         
         // Load products
-        const productsResponse = await fetch('${API_BASE}/api/products');
+        const productsResponse = await fetch('http://localhost:5000/api/products');
         if (productsResponse.ok) {
             products = await productsResponse.json();
         }
@@ -133,7 +133,7 @@ async function login() {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/auth/login', {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
@@ -147,7 +147,7 @@ async function login() {
             showAlert('Login successful!', 'success');
             
             // Reload data after login
-            const cartResponse = await fetch('${API_BASE}/api/cart', {
+            const cartResponse = await fetch('http://localhost:5000/api/cart', {
                 headers: {
                     'Authorization': `Bearer ${data.token}`
                 }
@@ -188,7 +188,7 @@ async function register() {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/auth/register', {
+        const response = await fetch('http://localhost:5000/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, password })
@@ -252,7 +252,7 @@ async function addProduct() {
             formData.append('images', imageInput.files[i]);
         }
         
-        const response = await fetch('${API_BASE}/api/products', {
+        const response = await fetch('http://localhost:5000/api/products', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -291,7 +291,7 @@ async function deleteProduct(productId) {
     
     try {
         showLoading(true);
-        const response = await fetch(`${API_BASE}/api/products/${productId}`, {
+        const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -324,7 +324,7 @@ async function addToCart(productId, quantity = 1) {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/cart', {
+        const response = await fetch('http://localhost:5000/api/cart', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -353,7 +353,7 @@ async function removeFromCart(index) {
     try {
         showLoading(true);
         const productId = cart[index].product._id;
-        const response = await fetch(`${API_BASE}/api/cart/${productId}`, {
+        const response = await fetch(`http://localhost:5000/api/cart/${productId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -383,7 +383,7 @@ async function updateCartItemQuantity(index, change) {
         try {
             showLoading(true);
             const productId = cart[index].product._id;
-            const response = await fetch(`${API_BASE}/api/cart/${productId}`, {
+            const response = await fetch(`http://localhost:5000/api/cart/${productId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -414,7 +414,7 @@ async function loadProfile() {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/auth/me', {
+        const response = await fetch('http://localhost:5000/api/auth/me', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
@@ -448,7 +448,7 @@ async function updateProfile() {
     
     try {
         showLoading(true);
-        const response = await fetch('${API_BASE}/api/auth/me', {
+        const response = await fetch('http://localhost:5000/api/auth/me', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
