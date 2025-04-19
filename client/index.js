@@ -601,36 +601,36 @@ function register() {
 }
 
 // Handle Google login
-function handleGoogleLogin(response) {
-    console.log("Google Login Response: ", response);
+// function handleGoogleLogin(response) {
+//     console.log("Google Login Response: ", response);
     
-    // Extract user info from response
-    const profile = response.getBasicProfile();
-    const username = profile.getName();
-    const email = profile.getEmail();
+//     // Extract user info from response
+//     const profile = response.getBasicProfile();
+//     const username = profile.getName();
+//     const email = profile.getEmail();
     
-    // Check if user exists
-    let user = users.find(u => u.email === email);
+//     // Check if user exists
+//     let user = users.find(u => u.email === email);
     
-    if (!user) {
-        // Create new user
-        user = {
-            username,
-            email,
-            googleId: response.getId()
-        };
-        users.push(user);
-        saveData();
-    }
+//     if (!user) {
+//         // Create new user
+//         user = {
+//             username,
+//             email,
+//             googleId: response.getId()
+//         };
+//         users.push(user);
+//         saveData();
+//     }
     
-    currentUser = user.username;
-    localStorage.setItem('currentUser', currentUser);
+//     currentUser = user.username;
+//     localStorage.setItem('currentUser', currentUser);
     
-    showAlert('Google login successful!', 'success');
-    showPage('home');
-    updateCartCount();
-    updateAuthButtons();
-}
+//     showAlert('Google login successful!', 'success');
+//     showPage('home');
+//     updateCartCount();
+//     updateAuthButtons();
+// }
 
 // Logout function
 function logout() {
