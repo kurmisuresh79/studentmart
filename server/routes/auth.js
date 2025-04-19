@@ -5,7 +5,7 @@ const { OAuth2Client } = require('google-auth-library');
 const User = require('../models/User');
 
 const router = express.Router();
-const client = new OAuth2Client("YOUR_GOOGLE_CLIENT_ID"); // Replace with your real client ID
+const client = new OAuth2Client("526282493491-n7mokbqg5fbpoqnno0k62uj8svo33726.apps.googleusercontent.com"); // Replace with your real client ID
 
 // -------------------- REGISTER --------------------
 router.post('/register', async (req, res) => {

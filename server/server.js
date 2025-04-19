@@ -3,7 +3,17 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
+// API Routes
+const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/products');
+const cartRoutes = require('./routes/cart');
 const app = express();
+
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
 
 // CORS Middleware for Vercel
 app.use(cors(
@@ -15,6 +25,10 @@ app.use(cors(
 
 app.use(express.json());
 
+app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/cart', cartRoutes);
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("✅ Connected to MongoDB"))
@@ -23,14 +37,9 @@ mongoose.connect(process.env.MONGODB_URI)
     process.exit(1);
 });
 
-// API Routes
-const authRoutes = require('./routes/auth');
-const productRoutes = require('./routes/products');
-const cartRoutes = require('./routes/cart');
 
-app.use('/api/auth', authRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/cart', cartRoutes);
+
+
 
 // Serve uploaded files
 app.use('/uploads', express.static('uploads'));
@@ -40,11 +49,6 @@ app.get('/', (req, res) => {
     res.send("🎓 Student Mart Backend is Live!");
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
 
 
 

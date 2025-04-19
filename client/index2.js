@@ -1,5 +1,35 @@
-// const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://studentmart.onrender.com";
+// const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "https://studentmart.onrender.com/api";
+// const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
+// console.log("API Base URL:", API_BASE);
+
+// // // Basic example of fetching products
+// // async function fetchProducts() {
+// //   try {
+// //     const res = await fetch(`${API_BASE}/products`);
+// //     const data = await res.json();
+// //     console.log("Products:", data);
+// //   } catch (error) {
+// //     console.error("Failed to fetch products:", error);
+// //   }
+// // }
+// // fetchProducts();
+
+// // window.handleGoogleLogin = function(response) {
+// //     console.log("Google login response:", response);
+
+// //     fetch(`${API_BASE}/auth/google-login`, {
+// //         method: 'POST',
+// //         headers: { 'Content-Type': 'application/json' },
+// //         body: JSON.stringify({ token: response.credential }),
+// //     })
+// //     .then(res => res.json())
+// //     .then(data => {
+// //         console.log("Login success:", data);
+// //         // Example: Save JWT/token, redirect user, etc.
+// //     })
+// //     .catch(err => console.error("Login error:", err));
+// // }
 // // Global variables
 // let products = [];
 // let cart = [];
@@ -16,18 +46,18 @@
 //         if (token) {
 //             try {
 //                 // Verify token and get user data
-//                 const userResponse = await fetch('http://localhost:5000/api/auth/me', {
+//                 const userResponse = await fetch(`${API_BASE}/auth/me`, {
 //                     headers: {
 //                         'Authorization': `Bearer ${token}`
 //                     }
 //                 });
-                
+                        
 //                 if (userResponse.ok) {
 //                     const userData = await userResponse.json();
 //                     currentUser = userData.username;
                     
 //                     // Load cart data
-//                     const cartResponse = await fetch('http://localhost:5000/api/cart', {
+//                     const cartResponse = await fetch(`${API_BASE}/cart`, {
 //                         headers: {
 //                             'Authorization': `Bearer ${token}`
 //                         }
@@ -44,7 +74,7 @@
 //         }
         
 //         // Load products
-//         const productsResponse = await fetch('http://localhost:5000/api/products');
+//         const productsResponse = await fetch(`${API_BASE}/products`);
 //         if (productsResponse.ok) {
 //             products = await productsResponse.json();
 //         }
@@ -133,7 +163,7 @@
     
 //     try {
 //         showLoading(true);
-//         const response = await fetch('http://localhost:5000/api/auth/login', {
+//         const response = await fetch(`${API_BASE}/auth/login`, {
 //             method: 'POST',
 //             headers: { 'Content-Type': 'application/json' },
 //             body: JSON.stringify({ username, password })
@@ -147,7 +177,7 @@
 //             showAlert('Login successful!', 'success');
             
 //             // Reload data after login
-//             const cartResponse = await fetch('http://localhost:5000/api/cart', {
+//             const cartResponse = await fetch(`${API_BASE}/cart`, {
 //                 headers: {
 //                     'Authorization': `Bearer ${data.token}`
 //                 }
@@ -188,7 +218,7 @@
     
 //     try {
 //         showLoading(true);
-//         const response = await fetch('http://localhost:5000/api/auth/register', {
+//         const response = await fetch(`${API_BASE}/auth/register`, {
 //             method: 'POST',
 //             headers: { 'Content-Type': 'application/json' },
 //             body: JSON.stringify({ username, email, password })
@@ -252,7 +282,7 @@
 //             formData.append('images', imageInput.files[i]);
 //         }
         
-//         const response = await fetch('http://localhost:5000/api/products', {
+//         const response = await fetch(`${API_BASE}/products`, {
 //             method: 'POST',
 //             headers: {
 //                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -291,7 +321,7 @@
     
 //     try {
 //         showLoading(true);
-//         const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+//         const response = await fetch(`${API_BASE}/api/products/${productId}`, {
 //             method: 'DELETE',
 //             headers: {
 //                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -324,7 +354,7 @@
     
 //     try {
 //         showLoading(true);
-//         const response = await fetch('http://localhost:5000/api/cart', {
+//         const response = await fetch(`${API_BASE}/cart`, {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json',
@@ -353,7 +383,7 @@
 //     try {
 //         showLoading(true);
 //         const productId = cart[index].product._id;
-//         const response = await fetch(`http://localhost:5000/api/cart/${productId}`, {
+//         const response = await fetch(`${API_BASE}/api/cart/${productId}`, {
 //             method: 'DELETE',
 //             headers: {
 //                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -383,7 +413,7 @@
 //         try {
 //             showLoading(true);
 //             const productId = cart[index].product._id;
-//             const response = await fetch(`http://localhost:5000/api/cart/${productId}`, {
+//             const response = await fetch(`${API_BASE}/api/cart/${productId}`, {
 //                 method: 'PUT',
 //                 headers: {
 //                     'Content-Type': 'application/json',
@@ -414,7 +444,7 @@
     
 //     try {
 //         showLoading(true);
-//         const response = await fetch('http://localhost:5000/api/auth/me', {
+//         const response = await fetch(`${API_BASE}/auth/me`, {
 //             headers: {
 //                 'Authorization': `Bearer ${localStorage.getItem('token')}`
 //             }
@@ -448,7 +478,7 @@
     
 //     try {
 //         showLoading(true);
-//         const response = await fetch('http://localhost:5000/api/auth/me', {
+//         const response = await fetch(`${API_BASE}/auth/me`, {
 //             method: 'PUT',
 //             headers: {
 //                 'Content-Type': 'application/json',
@@ -798,8 +828,3 @@
 //     showAlert('Checkout functionality will be implemented soon!', 'info');
 // }
 
-// // Handle Google login
-// function handleGoogleLogin(response) {
-//     console.log('Google login response:', response);
-//     // Implement Google login logic here
-// }

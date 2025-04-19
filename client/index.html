@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Mart - Campus Marketplace</title>
-    <link rel="stylesheet" href="index.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" href="favicon.ico" />
-    <link rel="preload" href="index.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <!-- <link rel="preload" href="index.css" as="style"> -->
+    <!-- <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"> -->
+<!-- <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style"> -->
 </head>
 <body>
     <!-- onload="showPage('home')" -->
@@ -23,34 +23,11 @@
     <p>Loading Student Mart...</p>
 </div>
 
-<div class="loading-indicator hidden">
-    <div class="loader"></div>
-</div>
-
-<style>
-.loading-indicator {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-.loading-indicator.active {
-    display: block;
-}
-</style>
-
-<!-- <script>
-// Show/hide loading indicator during operations
-function setLoading(state) {
-    const loader = document.querySelector('.loading-indicator');
-    loader.classList.toggle('hidden', !state);
-}
-</script> -->
-
     <!-- Navigation Bar -->
     <nav class="main-nav">
         <div class="nav-container">
             <div class="logo-container">
+                <!-- logo image -->
                 <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Student Mart" class="nav-logo">
                 <span class="logo-text">Student Mart</span>
             </div>
@@ -62,27 +39,10 @@ function setLoading(state) {
                     <i class="fas fa-shopping-cart"></i> Cart
                     <span class="cart-count">0</span>
                 </a>
-
-
           <!-- In your navigation bar (replace the auth-buttons div) -->
           <div class="auth-buttons">
-            <!-- <% if (currentUser) { %>
-                <div class="user-dropdown">
-                    <div class="user-profile" onclick="toggleDropdown()">
-                        <i class="fas fa-user-circle"></i>
-                        <span class="username"><%= currentUser %></span>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="dropdown-menu hidden">
-                        <a href="#" onclick="showPage('profile')"><i class="fas fa-user"></i> Profile</a>
-                        <a href="#" onclick="showPage('settings')"><i class="fas fa-cog"></i> Settings</a>
-                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                    </div>
-                </div>
-            <% } else { %> -->
                 <button class="btn-login" onclick="showPage('login')">Login</button>
                 <button class="btn-signup" onclick="showPage('register')">Sign Up</button>
-            <!-- <% } %> -->
         </div>
 
 
@@ -129,10 +89,7 @@ function setLoading(state) {
             <p class="signup-link">Don't have an account? <a href="#" onclick="showPage('register')">Sign up</a></p>
         </div>
     </div>
-        </div>
-    </div>
-           
-
+        
     <!-- Registration Page -->
     <div id="register" class="page container hidden">
         <div class="card register-glow">
@@ -244,10 +201,10 @@ function setLoading(state) {
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p>"I sold my textbooks in just 2 days! This platform is a lifesaver for students."</p>
+                        <p>"I sold my textbooks in just 2 days! This platform is a money saver for students."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J.">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Robin">
                         <div>
                             <h4>Robin</h4>
                             <p>Computer Science</p>
@@ -266,7 +223,7 @@ function setLoading(state) {
                         <p>"Found a perfect laptop at half the retail price. The seller was just across my dorm!"</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T.">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Harish Kumar">
                         <div>
                             <h4>Harish Kumar</h4>
                             <p>Business Student</p>
@@ -300,6 +257,7 @@ function setLoading(state) {
             <div class="footer-container">
                 <div class="footer-about">
                     <div class="logo-container">
+                        <!-- logo image -->
                         <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Student Mart" class="footer-logo">
                         <span class="logo-text">Student Mart</span>
                     </div>
@@ -339,7 +297,7 @@ function setLoading(state) {
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Student Mart. All rights reserved.</p>
+                <p>&copy; 2024 Student Mart. All rights reserved.</p>
             </div>
         </footer>
     </div>
@@ -582,7 +540,6 @@ function setLoading(state) {
         </div>
     </div>
 
-
     <!-- Profile Page -->
 <div id="profile" class="page container hidden">
     <div class="profile-header">
@@ -601,8 +558,8 @@ function setLoading(state) {
                 </button>
                 <input type="file" id="profileImageUpload" accept="image/*" hidden>
             </div>
-            <h2 id="profileUsername">Username</h2>
-            <p id="profileEmail">jeetyadav@gmail.com</p>
+            <h2 id="profileUsername">Jeetu Yadav</h2>
+            <p id="profileEmail">jeetuyadav@gmail.com</p>
         </div>
         
         <div class="profile-content">
@@ -725,8 +682,8 @@ function setLoading(state) {
     </div>
 </div>
 
-    <script type="module" src="index.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
