@@ -755,24 +755,21 @@ document.addEventListener('click', function(event) {
 });
 
 // Show alert
-function showAlert(message, type) {
-    const existingAlert = document.querySelector('.alert');
-    if (existingAlert) {
-        existingAlert.remove();
-    }
-    
+function showAlert(message, type = 'success') {
     const alert = document.createElement('div');
-    alert.className = `alert alert-${type}`;
-    alert.innerHTML = `
-        <span>${message}</span>
-        <button onclick="this.parentElement.remove()">&times;</button>
-    `;
-    
+    alert.className = `toast-alert ${type}`;
+    alert.textContent = message;
+
     document.body.appendChild(alert);
-    
+
+    // Trigger animation
+    setTimeout(() => alert.classList.add('show'), 10);
+
+    // Auto-remove after 4s
     setTimeout(() => {
-        alert.remove();
-    }, 3000);
+        alert.classList.remove('show');
+        setTimeout(() => alert.remove(), 500);
+    }, 4000);
 }
 
 // Update cart count in navbar

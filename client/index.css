@@ -2033,3 +2033,36 @@ input:checked + .slider:before {
     }
 }
 
+.toast-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #323232;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+/* Animation on show */
+.toast-alert.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Type colors */
+.toast-alert.success {
+    background-color: #2ecc71;
+}
+
+.toast-alert.error {
+    background-color: #e74c3c;
+}
