@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "https://studentmart.onrender.com";
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "/api";
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 console.log("API Base URL:", API_BASE);
