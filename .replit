@@ -9,7 +9,7 @@ run = ["sh", "-c", "cd server && node server.js"]
 build = ["sh", "-c", "cd server && npm install"]
 
 [workflows]
-runButton = "Start Server"
+runButton = "Frontend Dev"
 
 [[workflows.workflow]]
 name = "Start Server"
@@ -19,6 +19,15 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd server && npm install && node server.js"
+
+[[workflows.workflow]]
+name = "Frontend Dev"
+author = 42168937
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd client && npm install && npm run dev"
 
 [[ports]]
 localPort = 5000
