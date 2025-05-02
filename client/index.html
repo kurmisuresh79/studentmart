@@ -5,20 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentMart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="loading-screen">
         <div class="loading-indicator hidden"></div>
     </div>
-    <header>
-        <div class="logo">
-            <a href="#"><i class="fas fa-store"></i> StudentMart</a>
-        </div>
-        <nav>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
+    <header><div class="logo"><a href="#"><i class="fas fa-store"></i> StudentMart</a></div>
+        <nav><div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
             <div class="nav-links">
                 <a href="#" class="nav-link active" id="nav-link-home">Home</a>
                 <a href="#" class="nav-link" id="nav-link-buy">Marketplace</a>
@@ -28,16 +22,12 @@
                     <span class="cart-count">0</span>
                 </a>
             </div>
-        </nav>
-        <div class="auth-buttons">
-        </div>
-    </header>
+        </nav><div class="auth-buttons"></div></header>
 
     <main>
         <div id="home" class="page">
             <section class="hero">
-                <div class="hero-content">
-                    <h1>Welcome to StudentMart</h1>
+                <div class="hero-content"><h1>Welcome to StudentMart</h1>
                     <p>Buy, sell, and trade with fellow students!</p>
                     <button class="btn-add" id="home-add">Add a product</button>
                     <button class="btn-buy" id="buy-add">Go to marketplace</button>
@@ -48,8 +38,7 @@
                 <div class="featured-products">
                 </div>
             </section>
-
-             <section class="categories">
+            <section class="categories">
                 <h2>Categories</h2>
                 <div class="category-list">
                     <div class="category-card" id="category-textbooks">
@@ -72,8 +61,7 @@
             </section>
 
             <section class="about">
-                <h2>About StudentMart</h2>
-                <p>StudentMart is an online platform designed exclusively for students to buy, sell, and trade various items. From textbooks and electronics to furniture and clothing, StudentMart connects students within the same community.</p>
+                <h2>About StudentMart</h2><p>StudentMart is an online platform designed exclusively for students to buy, sell, and trade various items. From textbooks and electronics to furniture and clothing, StudentMart connects students within the same community.</p>
                 <div class="additional-info">
                   <div class="info-item" id="home-faqs">
                     <i class="fas fa-question-circle"></i>
@@ -95,8 +83,7 @@
             </section>
 
             <section class="profile-section">
-                <h2>User Profile</h2>
-                <div class="profile-actions">
+                <h2>User Profile</h2><div class="profile-actions">
                      <div class="profile-item" id="home-profile">
                          <i class="fas fa-user"></i>
                          <h3>Profile</h3>
@@ -110,8 +97,7 @@
 
         </div>
 
-        <div id="login" class="page hidden">
-            <div class="form-container">
+        <div id="login" class="page hidden"><div class="form-container">
                  <h2>Login</h2>
                 <div class="input-group">
                     <label for="username">Username</label>
@@ -125,7 +111,6 @@
                 <button class="btn-signup" id="signup-button">Sign Up</button>
             </div>
         </div>
-
         <div id="register" class="page hidden">
             <div class="form-container">
                  <h2>Register</h2>
@@ -149,7 +134,6 @@
                 <button class="btn-home" id="home-button">Home</button>
             </div>
         </div>
-
         <div id="buy" class="page hidden">
             <section class="hero">
                  <div class="hero-content">
@@ -176,7 +160,6 @@
              <div class="product-list">
             </div>
         </div>
-
         <div id="add" class="page hidden">
             <div class="add-product-form">
                  <h2>Add Product</h2>
@@ -214,7 +197,6 @@
                 <button class="btn-cancel" id="cancel-add-button">Cancel</button>
             </div>
         </div>
-
         <div id="cart" class="page hidden">
             <div class="cart-container">
                  <h2>Your Cart</h2>
@@ -236,8 +218,7 @@
                  </div>
              </div>
         </div>
-
-         <div id="profile" class="page hidden">
+        <div id="profile" class="page hidden">
              <div class="profile-container">
                  <h2>Profile</h2>
                  <div class="profile-content">
@@ -275,8 +256,7 @@
                  </div>
                 <button class="btn-update" id="update-profile-button">Update Profile</button>
              </div>
-         </div>
-
+        </div>
         <div id="settings" class="page hidden">
              <div class="settings-container">
                 <h2>Settings</h2>
@@ -299,8 +279,7 @@
                  <button class="btn-delete" id="delete-account-button">Delete Account</button>
              </div>
          </div>
-
-         <div id="productDetails" class="page hidden">
+        <div id="productDetails" class="page hidden">
          </div>
 
          <div id="faqs" class="page hidden">
@@ -331,342 +310,6 @@
     <footer>
         <p>&copy; 2023 StudentMart. All rights reserved.</p>
     </footer>
-    <script type="module" src="index.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentMart</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="loading-screen">
-        <div class="loading-indicator hidden"></div>
-    </div>
-    <header>
-        <div class="logo">
-            <a href="#"><i class="fas fa-store"></i> StudentMart</a>
-        </div>
-        <nav>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="nav-links">
-                <a href="#" class="nav-link active" id="nav-link-home">Home</a>
-                <a href="#" class="nav-link" id="nav-link-buy">Marketplace</a>
-                <a href="#" class="nav-link" id="nav-link-add">Add Product</a>
-                <a href="#" class="nav-link" id="nav-link-cart">
-                    Cart
-                    <span class="cart-count">0</span>
-                </a>
-            </div>
-        </nav>
-        <div class="auth-buttons">
-        </div>
-    </header>
-
-    <main>
-        <div id="home" class="page">
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Welcome to StudentMart</h1>
-                    <p>Buy, sell, and trade with fellow students!</p>
-                    <button class="btn-add" id="home-add">Add a product</button>
-                    <button class="btn-buy" id="buy-add">Go to marketplace</button>
-                </div>
-            </section>
-            <section class="featured">
-                <h2>Featured Products</h2>
-                <div class="featured-products">
-                </div>
-            </section>
-
-             <section class="categories">
-                <h2>Categories</h2>
-                <div class="category-list">
-                    <div class="category-card" id="category-textbooks">
-                        <i class="fas fa-book"></i>
-                        <h3>Textbooks</h3>
-                    </div>
-                    <div class="category-card" id="category-electronics">
-                        <i class="fas fa-laptop"></i>
-                        <h3>Electronics</h3>
-                    </div>
-                    <div class="category-card" id="category-furniture">
-                        <i class="fas fa-couch"></i>
-                        <h3>Furniture</h3>
-                    </div>
-                    <div class="category-card" id="category-clothing">
-                        <i class="fas fa-tshirt"></i>
-                        <h3>Clothing</h3>
-                    </div>
-                </div>
-            </section>
-
-            <section class="about">
-                <h2>About StudentMart</h2>
-                <p>StudentMart is an online platform designed exclusively for students to buy, sell, and trade various items. From textbooks and electronics to furniture and clothing, StudentMart connects students within the same community.</p>
-                <div class="additional-info">
-                  <div class="info-item" id="home-faqs">
-                    <i class="fas fa-question-circle"></i>
-                    <h3>FAQs</h3>
-                    </div>
-                     <div class="info-item" id="home-safety">
-                        <i class="fas fa-shield-alt"></i>
-                         <h3>Safety</h3>
-                     </div>
-                      <div class="info-item" id="home-contact">
-                        <i class="fas fa-phone"></i>
-                       <h3>Contact</h3>
-                      </div>
-                      <div class="info-item" id="home-privacy">
-                        <i class="fas fa-file-alt"></i>
-                        <h3>Privacy</h3>
-                    </div>
-                </div>
-            </section>
-
-            <section class="profile-section">
-                <h2>User Profile</h2>
-                <div class="profile-actions">
-                     <div class="profile-item" id="home-profile">
-                         <i class="fas fa-user"></i>
-                         <h3>Profile</h3>
-                    </div>
-                     <div class="profile-item" id="setting-profile">
-                         <i class="fas fa-cog"></i>
-                         <h3>Settings</h3>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-        <div id="login" class="page hidden">
-            <div class="form-container">
-                 <h2>Login</h2>
-                <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username">
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password">
-                </div>
-                <button class="btn-login" id="login-button">Login</button>
-                <button class="btn-signup" id="signup-button">Sign Up</button>
-            </div>
-        </div>
-
-        <div id="register" class="page hidden">
-            <div class="form-container">
-                 <h2>Register</h2>
-                 <div class="input-group">
-                    <label for="regUsername">Username</label>
-                    <input type="text" id="regUsername">
-                </div>
-                <div class="input-group">
-                    <label for="regEmail">Email</label>
-                    <input type="email" id="regEmail">
-                </div>
-                 <div class="input-group">
-                    <label for="regPassword">Password</label>
-                    <input type="password" id="regPassword">
-                </div>
-                <div class="input-group">
-                    <label for="regConfirmPassword">Confirm Password</label>
-                    <input type="password" id="regConfirmPassword">
-                </div>
-                <button class="btn-register" id="register-button">Register</button>
-                <button class="btn-home" id="home-button">Home</button>
-            </div>
-        </div>
-
-        <div id="buy" class="page hidden">
-            <section class="hero">
-                 <div class="hero-content">
-                    <h1>Welcome to Marketplace</h1>
-                    <p>Find the perfect item you need</p>
-                    <button class="btn-home" id="home-buy">Go to Home</button>
-                </div>
-            </section>
-            <div class="buy-options">
-                <select id="categoryFilter" onchange="filterProducts()">
-                    <option value="all">All Categories</option>
-                    <option value="textbooks">Textbooks</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="furniture">Furniture</option>
-                    <option value="clothing">Clothing</option>
-                </select>
-                <input type="text" id="searchInput" placeholder="Search products..." oninput="filterProducts()">
-                <select id="sortBy" onchange="sortProducts()">
-                    <option value="newest">Newest</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
-                </select>
-            </div>
-             <div class="product-list">
-            </div>
-        </div>
-
-        <div id="add" class="page hidden">
-            <div class="add-product-form">
-                 <h2>Add Product</h2>
-                 <div class="input-group">
-                    <label for="itemName">Name</label>
-                    <input type="text" id="itemName">
-                </div>
-                <div class="input-group">
-                    <label for="itemPrice">Price</label>
-                    <input type="number" id="itemPrice">
-                </div>
-                 <div class="input-group">
-                    <label for="itemContact">Contact</label>
-                    <input type="text" id="itemContact">
-                </div>
-                <div class="input-group">
-                    <label for="itemAbout">About</label>
-                    <textarea id="itemAbout"></textarea>
-                </div>
-                <div class="input-group">
-                    <label for="itemCategory">Category</label>
-                    <select id="itemCategory">
-                        <option value="textbooks">Textbooks</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="furniture">Furniture</option>
-                        <option value="clothing">Clothing</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="itemImage">Images</label>
-                    <input type="file" id="itemImage" multiple>
-                    <div id="imagePreview"></div>
-                </div>
-                <button class="btn-add" id="add-product-button">Add Product</button>
-                <button class="btn-cancel" id="cancel-add-button">Cancel</button>
-            </div>
-        </div>
-
-        <div id="cart" class="page hidden">
-            <div class="cart-container">
-                 <h2>Your Cart</h2>
-                  <div class="cart-list">
-                    </div>
-                 <div class="cart-summary">
-                    <p>Subtotal: <span id="subtotal">₹0</span></p>
-                    <p>Total: <span id="total">₹0</span></p>
-                 </div>
-                 <div class="cart-actions">
-                     <button class="btn-checkout" id="cart-checkout">
-                         <span class="btn-text">Proceed to Checkout</span>
-                         <i class="fas fa-arrow-right btn-icon"></i>
-                     </button>
-                     <button class="btn-continue" id="cart-continue">
-                         <span class="btn-text">Continue Shopping</span>
-                         <i class="fas fa-store btn-icon"></i>
-                     </button>
-                 </div>
-             </div>
-        </div>
-
-         <div id="profile" class="page hidden">
-             <div class="profile-container">
-                 <h2>Profile</h2>
-                 <div class="profile-content">
-                    <div class="profile-picture">
-                        <img src="https://via.placeholder.com/150" alt="Profile Picture">
-                         <input type="file" id="profile-image-upload" style="display: none;">
-                         <label for="profile-image-upload" class="upload-icon">
-                           <i class="fas fa-camera"></i>
-                         </label>
-                     </div>
-                     <div class="profile-info">
-                        <p>Username: <span id="profileUsername"></span></p>
-                         <p>Email: <span id="profileEmail"></span></p>
-                         <div class="input-group">
-                             <label for="profileName">Full Name</label>
-                             <input type="text" id="profileName">
-                         </div>
-                         <div class="input-group">
-                             <label for="profilePhone">Phone Number</label>
-                             <input type="tel" id="profilePhone">
-                         </div>
-                         <div class="input-group">
-                             <label for="profileCampus">Campus</label>
-                             <input type="text" id="profileCampus">
-                         </div>
-                        <div class="input-group">
-                            <label for="profileHostel">Hostel</label>
-                            <input type="text" id="profileHostel">
-                        </div>
-                        <div class="input-group">
-                            <label for="profileAddress">Address</label>
-                            <input type="text" id="profileAddress">
-                        </div>
-                     </div>
-                 </div>
-                <button class="btn-update" id="update-profile-button">Update Profile</button>
-             </div>
-         </div>
-
-        <div id="settings" class="page hidden">
-             <div class="settings-container">
-                <h2>Settings</h2>
-                 <div class="form-container">
-                     <div class="input-group">
-                        <label for="oldPassword">Old Password</label>
-                        <input type="password" id="oldPassword">
-                    </div>
-                    <div class="input-group">
-                        <label for="newPassword">New Password</label>
-                        <input type="password" id="newPassword">
-                    </div>
-                    <div class="input-group">
-                        <label for="confirmNewPassword">Confirm New Password</label>
-                        <input type="password" id="confirmNewPassword">
-                    </div>
-                     <button class="btn-update" id="update-password-button">Update Password</button>
-                     <button class="btn-cancel" id="cancel-password-button">Cancel</button>
-                </div>
-                 <button class="btn-delete" id="delete-account-button">Delete Account</button>
-             </div>
-         </div>
-
-         <div id="productDetails" class="page hidden">
-         </div>
-
-         <div id="faqs" class="page hidden">
-             <div class="faqs-container">
-                <h2>FAQs</h2>
-             </div>
-         </div>
-
-        <div id="safety" class="page hidden">
-             <div class="safety-container">
-                 <h2>Safety</h2>
-            </div>
-        </div>
-
-        <div id="contact" class="page hidden">
-            <div class="contact-container">
-                <h2>Contact</h2>
-            </div>
-        </div>
-
-        <div id="privacy" class="page hidden">
-            <div class="privacy-container">
-                 <h2>Privacy</h2>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 StudentMart. All rights reserved.</p>
-    </footer>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="index.js"></script>    
 </body>
 </html>
