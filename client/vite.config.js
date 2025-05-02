@@ -2,7 +2,15 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  // This ensures Vite will expose all env variables prefixed with VITE_
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html' // Use index.html as the entry point
+      }
+    },
+    outDir: 'dist', // Output directory for the build files
+  },
+  // This ensures Vite will expose all env variables prefixed with VITE_  
   envPrefix: 'VITE_',
   
   server: {
