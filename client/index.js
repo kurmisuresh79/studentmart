@@ -660,7 +660,9 @@ function showPage(pageId) {
   if (selectedPage) {
     selectedPage.style.display = 'block';
   }
-} Helper functions
+} 
+
+// Helper functions
 function updateAuthButtons() {
     const authButtonsContainer = document.querySelector('.auth-buttons');
     if (!authButtonsContainer) return;

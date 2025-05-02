@@ -9,7 +9,7 @@ run = ["sh", "-c", "node server/server.js"]
 build = ["sh", "-c", "npm install && cd client && npm install && npm run build"]
 
 [workflows]
-runButton = "Frontend Dev"
+runButton = "Full Stack Dev"
 
 [[workflows.workflow]]
 name = "Start Server"
@@ -24,6 +24,19 @@ args = "cd server && npm install && node server.js"
 name = "Frontend Dev"
 author = 42168937
 mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd client && npm install && npm run dev"
+
+[[workflows.workflow]]
+name = "Full Stack Dev"
+author = 42168937
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd server && npm install && node server.js"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"

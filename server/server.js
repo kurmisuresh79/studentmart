@@ -33,7 +33,8 @@ app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://your_mongodb_uri';
+mongoose.connect(MONGODB_URI, {
     dbName: 'studentmartDB',
     useNewUrlParser: true,
     useUnifiedTopology: true
