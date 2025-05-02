@@ -8,7 +8,7 @@ const app = express();
 
 // CORS Middleware for Vercel
 app.use(cors({
-  origin: 'https://studentmart.vercel.app',
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
