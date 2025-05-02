@@ -16,10 +16,9 @@ app.listen(PORT, () => {
 });
 
 // CORS Middleware for Vercel
-app.use(cors(
-    // {
-//     origin: 'https://studentmart.vercel.app',
-//     credentials: true
+app.use(cors({
+    origin: 'https://studentmart.vercel.app',
+    credentials: true
 // })
 ));
 

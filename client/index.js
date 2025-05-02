@@ -321,7 +321,7 @@ async function deleteProduct(productId) {
     
     try {
         showLoading(true);
-        const response = await fetch(`${API_BASE}/api/products/${productId}`, {
+        const response = await fetch(`${API_BASE}/products/${productId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -383,7 +383,7 @@ async function removeFromCart(index) {
     try {
         showLoading(true);
         const productId = cart[index].product._id;
-        const response = await fetch(`${API_BASE}/api/cart/${productId}`, {
+        const response = await fetch(`${API_BASE}/cart/${productId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -413,7 +413,7 @@ async function updateCartItemQuantity(index, change) {
         try {
             showLoading(true);
             const productId = cart[index].product._id;
-            const response = await fetch(`${API_BASE}/api/cart/${productId}`, {
+            const response = await fetch(`${API_BASE}/cart/${productId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
