@@ -19,26 +19,21 @@ app.listen(PORT, () => {
 app.use(cors({
     origin: 'https://studentmart.vercel.app',
     credentials: true
-// })
-));
+}));
 
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
-
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log("✅ Connected to MongoDB"))
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/", {
+    dbName: 'studentmartDB' // Specify the database name here
+  }).then(() => console.log("Connected to MongoDB"))
   .catch(err => {
-    console.error("❌ MongoDB connection error:", err.message);
-    process.exit(1);
+    console.error("MongoDB connection error:", err.message);
+    process.exit(1); // Exit if DB connection fails
 });
-
-
-
-
 
 // Serve uploaded files
 app.use('/uploads', express.static('uploads'));
@@ -62,19 +57,16 @@ app.get('/', (req, res) => {
 // app.use(cors());
 // app.use(express.json());
 
-// // MongoDB Connection
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/studentmart"
-// //    {
-// //   useNewUrlParser: true,
-// //   useUnifiedTopology: true,
-// //   serverSelectionTimeoutMS: 5000
-// // }
-// )
-// .then(() => console.log("Connected to MongoDB"))
-// .catch(err => {
-//   console.error("MongoDB connection error:", err.message);
-//   process.exit(1); // Exit if DB connection fails
-// });
+// MongoDB Connection
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/", {
+    dbName: 'studentmartDB' // Specify the database name here
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(err => {
+    console.error("MongoDB connection error:", err.message);
+    process.exit(1); // Exit if DB connection fails
+  });
+  
 
 // // Routes
 // const authRoutes = require('./routes/auth');
