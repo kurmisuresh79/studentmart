@@ -25,7 +25,11 @@ app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
 
 // MongoDB Connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://your_mongodb_uri';
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI) {
+    console.error("Please set MONGODB_URI in environment variables");
+    process.exit(1);
+}
 mongoose.connect(MONGODB_URI, {
     dbName: 'studentmartDB',
     useNewUrlParser: true,
