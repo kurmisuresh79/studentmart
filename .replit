@@ -5,8 +5,8 @@ run = "node index.js"
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "cd server && node server.js"]
-build = ["sh", "-c", "cd server && npm install"]
+run = ["sh", "-c", "node server/server.js"]
+build = ["sh", "-c", "npm install && cd client && npm install && npm run build"]
 
 [workflows]
 runButton = "Frontend Dev"
