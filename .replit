@@ -5,7 +5,8 @@ run = "node index.js"
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "node index.js"]
+run = ["sh", "-c", "cd server && node server.js"]
+build = ["sh", "-c", "cd server && npm install"]
 
 [workflows]
 runButton = "Start Server"
@@ -18,3 +19,7 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd server && npm install && node server.js"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
