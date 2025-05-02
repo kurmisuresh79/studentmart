@@ -1,314 +1,698 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentMart</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="index.css"> <!-- Updated stylesheet link -->
+    <title>Student Mart - Campus Marketplace</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <!-- <link rel="preload" href="index.css" as="style"> -->
+    <!-- <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"> -->
+<!-- <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style"> -->
 </head>
 <body>
-    <div class="loading-screen">
-        <div class="loading-indicator hidden"></div>
-    </div>
-    <header><div class="logo"><a href="#"><i class="fas fa-store"></i> StudentMart</a></div><!-- Logo Section -->
-        <nav><div class="mobile-menu-btn"><i class="fas fa-bars"></i></div><!-- Mobile Menu Button -->
+    <!-- onload="showPage('home')" -->
+    <!-- Loading Screen -->
+   <!-- Replace loading screen div with -->
+   <div class="loading-screen">
+    <div class="loader"></div>
+    <p>Loading Student Mart...</p>
+</div>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo-container">
+                <!-- logo image -->
+                <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Student Mart" class="nav-logo">
+                <span class="logo-text">Student Mart</span>
+            </div>
             <div class="nav-links">
-                <a href="#" class="nav-link active" id="nav-link-home">Home</a>
-                <a href="#" class="nav-link" id="nav-link-buy">Marketplace</a>
-                <a href="#" class="nav-link" id="nav-link-add">Add Product</a>
-                <a href="#" class="nav-link" id="nav-link-cart">
-                    Cart
+                <a href="#" onclick="showPage('home')" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="#" onclick="showPage('buy')" class="nav-link"><i class="fas fa-store"></i> Marketplace</a>
+                <a href="#" onclick="showPage('add')" class="nav-link"><i class="fas fa-plus-circle"></i> Sell</a>
+                <a href="#" onclick="showPage('cart')" class="nav-link cart-link">
+                    <i class="fas fa-shopping-cart"></i> Cart
                     <span class="cart-count">0</span>
                 </a>
+          <!-- In your navigation bar (replace the auth-buttons div) -->
+          <div class="auth-buttons">
+                <button class="btn-login" onclick="showPage('login')">Login</button>
+                <button class="btn-signup" onclick="showPage('register')">Sign Up</button>
+        </div>
+
+
             </div>
-        </nav><div class="auth-buttons"></div></header>
- <!-- Main Content Area  -->
-    <main>
-        <div id="home" class="page">
-            <section class="hero"> <!-- Hero Section -->
-                <div class="hero-content"><h1>Welcome to StudentMart</h1>
-                    <p>Buy, sell, and trade with fellow students!</p>
-                    <button class="btn-add" id="home-add">Add a product</button>
-                    <button class="btn-buy" id="buy-add">Go to marketplace</button>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Page -->
+    <div id="login" class="page container hidden">
+        <div class="card login-glow">
+            <div class="login-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Student Mart" class="login-logo">
+                <h2>Welcome Back!</h2>
+                <p>Login to access your account</p>
+            </div>
+            <div class="form-group">
+                <i class="fas fa-user"></i>
+                <type="text" 
+                id="username" 
+                name="username" 
+                placeholder="Username" 
+                autocomplete="username" 
+                required>
+            </div>
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div id="login-error" class="error-message hidden"></div>
+            <button class="btn-primary" onclick="login()">
+                <span class="btn-text">Login</span>
+                <i class="fas fa-arrow-right btn-icon"></i>
+            </button>
+           <div class="social-login">
+                <p>Or login with</p>
+                <!-- <div class="social-icons">
+                    <div id="g_id_onload" data-client_id="526282493491-n7mokbqg5fbpoqnno0k62uj8svo33726.apps.googleusercontent.com" data-callback="handleGoogleLogin" data-auto_prompt="false"></div>
+                    <div class="g_id_signin social-icon" data-type="icon" data-shape="circle">
+                        <i class="fab fa-google"></i>
+                    </div> -->
+                    <div class="social-icon" onclick="alert('Facebook login coming soon!')">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
                 </div>
-            </section>
-            <section class="featured">
-                <h2>Featured Products</h2> <!-- Featured Products Section -->
-                <div class="featured-products">
+            </div>
+            <p class="signup-link">Don't have an account? <a href="#" onclick="showPage('register')">Sign up</a></p>
+        </div>
+    </div>
+        
+    <!-- Registration Page -->
+    <div id="register" class="page container hidden">
+        <div class="card register-glow">
+            <div class="login-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Student Mart" class="login-logo">
+                <h2>Create Account</h2>
+                <p>Join our student community</p>
+            </div>
+            <div class="form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="regUsername" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="regEmail" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="regPassword" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="regConfirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <button class="btn-primary" onclick="register()">
+                <span class="btn-text">Register</span>
+                <i class="fas fa-user-plus btn-icon"></i>
+            </button>
+            <p class="login-link">Already have an account? <a href="#" onclick="showPage('login')">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home" class="page hidden">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Buy & Sell Within Your Campus</h1>
+                <p class="hero-subtitle">Textbooks, Electronics, Furniture and more at student-friendly prices</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="showPage('buy')">
+                        <span class="btn-text">Browse Marketplace</span>
+                        <i class="fas fa-arrow-right btn-icon"></i>
+                    </button>
+                    <button class="btn-secondary" onclick="showPage('add')">
+                        <span class="btn-text">Sell an Item</span>
+                        <i class="fas fa-plus btn-icon"></i>
+                    </button>
                 </div>
-            </section>
-            <section class="categories">
-                <h2>Categories</h2>
-                <div class="category-list">
-                    <div class="category-card" id="category-textbooks">
+            </div>
+            <div class="hero-image">
+                <img src="https://img.freepik.com/free-vector/online-shopping-concept-illustration_114360-1084.jpg" alt="Student Shopping" class="hero-img">
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterProducts('textbooks')">
+                    <div class="category-icon">
                         <i class="fas fa-book"></i>
-                        <h3>Textbooks</h3>
                     </div>
-                    <div class="category-card" id="category-electronics">
+                    <h3>Textbooks</h3>
+                    <p>Buy & sell course materials</p>
+                </div>
+                <div class="category-card" onclick="filterProducts('electronics')">
+                    <div class="category-icon">
                         <i class="fas fa-laptop"></i>
-                        <h3>Electronics</h3>
                     </div>
-                    <div class="category-card" id="category-furniture">
+                    <h3>Electronics</h3>
+                    <p>Laptops, phones & gadgets</p>
+                </div>
+                <div class="category-card" onclick="filterProducts('furniture')">
+                    <div class="category-icon">
                         <i class="fas fa-couch"></i>
-                        <h3>Furniture</h3>
                     </div>
-                    <div class="category-card" id="category-clothing">
+                    <h3>Furniture</h3>
+                    <p>Dorm essentials</p>
+                </div>
+                <div class="category-card" onclick="filterProducts('clothing')">
+                    <div class="category-icon">
                         <i class="fas fa-tshirt"></i>
-                        <h3>Clothing</h3>
                     </div>
+                    <h3>Clothing</h3>
+                    <p>Fashion & accessories</p>
                 </div>
-            </section>
-
-            <section class="about"> <!-- About Section -->
-                <h2>About StudentMart</h2><p>StudentMart is an online platform designed exclusively for students to buy, sell, and trade various items. From textbooks and electronics to furniture and clothing, StudentMart connects students within the same community.</p>
-                <div class="additional-info">
-                  <div class="info-item" id="home-faqs">
-                    <i class="fas fa-question-circle"></i>
-                    <h3>FAQs</h3>
-                    </div>
-                     <div class="info-item" id="home-safety">
-                        <i class="fas fa-shield-alt"></i>
-                         <h3>Safety</h3>
-                     </div>
-                      <div class="info-item" id="home-contact">
-                        <i class="fas fa-phone"></i>
-                       <h3>Contact</h3>
-                      </div>
-                      <div class="info-item" id="home-privacy">
-                        <i class="fas fa-file-alt"></i>
-                        <h3>Privacy</h3>
-                    </div>
-                </div>
-            </section>
-
-            <section class="profile-section"> <!-- Profile Section -->
-                <h2>User Profile</h2><div class="profile-actions">
-                     <div class="profile-item" id="home-profile">
-                         <i class="fas fa-user"></i>
-                         <h3>Profile</h3>
-                    </div>
-                     <div class="profile-item" id="setting-profile">
-                         <i class="fas fa-cog"></i>
-                         <h3>Settings</h3>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-        <div id="login" class="page hidden"><div class="form-container"> <!-- Login Page -->
-                 <h2>Login</h2>
-                <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username">
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password">
-                </div>
-                <button class="btn-login" id="login-button">Login</button>
-                <button class="btn-signup" id="signup-button">Sign Up</button>
             </div>
-        </div>
-        <div id="register" class="page hidden"> <!-- Register Page -->
-            <div class="form-container">
-                 <h2>Register</h2>
-                 <div class="input-group">
-                    <label for="regUsername">Username</label>
-                    <input type="text" id="regUsername">
-                </div>
-                <div class="input-group">
-                    <label for="regEmail">Email</label>
-                    <input type="email" id="regEmail">
-                </div>
-                 <div class="input-group">
-                    <label for="regPassword">Password</label>
-                    <input type="password" id="regPassword">
-                </div>
-                <div class="input-group">
-                    <label for="regConfirmPassword">Confirm Password</label>
-                    <input type="password" id="regConfirmPassword">
-                </div>
-                <button class="btn-register" id="register-button">Register</button>
-                <button class="btn-home" id="home-button">Home</button>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-section">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="featured-products">
+                <!-- Dynamically populated by JavaScript -->
             </div>
-        </div>
-        <div id="buy" class="page hidden"> <!-- Marketplace Page -->
-            <section class="hero">
-                 <div class="hero-content">
-                    <h1>Welcome to Marketplace</h1>
-                    <p>Find the perfect item you need</p>
-                    <button class="btn-home" id="home-buy">Go to Home</button>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <h2 class="section-title">What Students Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"I sold my textbooks in just 2 days! This platform is a money saver for students."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Robin">
+                        <div>
+                            <h4>Robin</h4>
+                            <p>Computer Science</p>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            <div class="buy-options">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Found a perfect laptop at half the retail price. The seller was just across my dorm!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Harish Kumar">
+                        <div>
+                            <h4>Harish Kumar</h4>
+                            <p>Business Student</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"As an college student, this helped me furnish my apartment quickly and affordably."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Priya K.">
+                        <div>
+                            <h4>Priya K.</h4>
+                            <p>Engineering Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="logo-container">
+                        <!-- logo image -->
+                        <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Student Mart" class="footer-logo">
+                        <span class="logo-text">Student Mart</span>
+                    </div>
+                    <p>Connecting students to buy and sell within their campus community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('buy')">Marketplace</a></li>
+                        <li><a href="#" onclick="showPage('add')">Sell Items</a></li>
+                        <li><a href="#" onclick="showPage('cart')">Your Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Help & Support</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('faqs')">FAQs</a></li>
+                        <li><a href="#" onclick="showPage('safety')">Safety Tips</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+                        <li><a href="#" onclick="showPage('privacy')">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for campus deals and updates.</p>
+                    <div class="newsletter-form">
+                        <input type="email" name="email" id="email" type="email" placeholder="Your email address" autocomplete="email">
+                        <input/>
+
+                        <button class="btn-subscribe">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Student Mart. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Marketplace Page -->
+    <div id="buy" class="page container hidden">
+        <div class="marketplace-header">
+            <h1>Marketplace</h1>
+            <button class="btn-back" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+            <div class="search-filter">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search products..." oninput="filterProducts()">
+                </div>
                 <select id="categoryFilter" onchange="filterProducts()">
                     <option value="all">All Categories</option>
                     <option value="textbooks">Textbooks</option>
                     <option value="electronics">Electronics</option>
                     <option value="furniture">Furniture</option>
                     <option value="clothing">Clothing</option>
+                    <option value="other">Other</option>
                 </select>
-                <input type="text" id="searchInput" placeholder="Search products..." oninput="filterProducts()">
                 <select id="sortBy" onchange="sortProducts()">
-                    <option value="newest">Newest</option>
+                    <option value="newest">Newest First</option>
                     <option value="price-low">Price: Low to High</option>
                     <option value="price-high">Price: High to Low</option>
                 </select>
             </div>
-             <div class="product-list">
-            </div>
         </div>
-        <div id="add" class="page hidden"> <!-- Add Product Page -->
-            <div class="add-product-form">
-                 <h2>Add Product</h2>
-                 <div class="input-group">
-                    <label for="itemName">Name</label>
-                    <input type="text" id="itemName">
+        <div class="product-list"></div>
+    </div>
+
+    <!-- Product Details Page -->
+    <div id="productDetails" class="page container hidden">
+        <!-- Dynamically populated by JavaScript -->
+    </div>
+
+    <!-- Add Product Page -->
+    <div id="add" class="page container hidden">
+        <div class="add-product-header">
+            <h1>Sell an Item</h1>
+            <p>Fill in the details of the item you want to sell</p>
+        </div>
+        <div class="add-product-form">
+            <div class="form-group">
+                <label for="itemName">Item Name</label>
+                <input type="text" id="itemName" placeholder="e.g. Calculus Textbook, MacBook Pro, etc." required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="itemPrice">Price (₹)</label>
+                    <input type="number" id="itemPrice" placeholder="Enter price" required>
                 </div>
-                <div class="input-group">
-                    <label for="itemPrice">Price</label>
-                    <input type="number" id="itemPrice">
-                </div>
-                 <div class="input-group">
-                    <label for="itemContact">Contact</label>
-                    <input type="text" id="itemContact">
-                </div>
-                <div class="input-group">
-                    <label for="itemAbout">About</label>
-                    <textarea id="itemAbout"></textarea>
-                </div>
-                <div class="input-group">
+                <div class="form-group">
                     <label for="itemCategory">Category</label>
-                    <select id="itemCategory">
+                    <select id="itemCategory" required>
+                        <option value="">Select category</option>
                         <option value="textbooks">Textbooks</option>
                         <option value="electronics">Electronics</option>
                         <option value="furniture">Furniture</option>
                         <option value="clothing">Clothing</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
-                <div class="input-group">
-                    <label for="itemImage">Images</label>
-                    <input type="file" id="itemImage" multiple>
-                    <div id="imagePreview"></div>
+            </div>
+            <div class="form-group">
+                <label for="itemContact">Contact Number (with country code)</label>
+                <input type="tel" id="itemContact" placeholder="e.g. +919876543210" required>
+            </div>
+            <div class="form-group">
+                <label for="itemAbout">Product Description</label>
+                <textarea id="itemAbout" placeholder="Describe your product in detail (condition, specifications, etc.)" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="itemImage">Product Images</label>
+                <div class="image-upload">
+                    <label for="itemImage" class="upload-btn">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Click to upload images</span>
+                    </label>
+                    <input type="file" id="itemImage" accept="image/*" multiple required>
+                    <div class="image-preview" id="imagePreview"></div>
                 </div>
-                <button class="btn-add" id="add-product-button">Add Product</button>
-                <button class="btn-cancel" id="cancel-add-button">Cancel</button>
+            </div>
+            <div class="form-actions">
+                <button class="btn-primary" onclick="addProduct()">
+                    <span class="btn-text">List Item</span>
+                    <i class="fas fa-check btn-icon"></i>
+                </button>
+                <button class="btn-secondary" onclick="showPage('home')">
+                    <span class="btn-text">Cancel</span>
+                    <i class="fas fa-times btn-icon"></i>
+                </button>
             </div>
         </div>
-        <div id="cart" class="page hidden"> <!-- Cart Page -->
-            <div class="cart-container">
-                 <h2>Your Cart</h2>
-                  <div class="cart-list">
-                    </div>
-                 <div class="cart-summary">
-                    <p>Subtotal: <span id="subtotal">₹0</span></p>
-                    <p>Total: <span id="total">₹0</span></p>
-                 </div>
-                 <div class="cart-actions">
-                     <button class="btn-checkout" id="cart-checkout">
-                         <span class="btn-text">Proceed to Checkout</span>
-                         <i class="fas fa-arrow-right btn-icon"></i>
-                     </button>
-                     <button class="btn-continue" id="cart-continue">
-                         <span class="btn-text">Continue Shopping</span>
-                         <i class="fas fa-store btn-icon"></i>
-                     </button>
-                 </div>
-             </div>
+    </div>
+
+    <!-- Cart Page -->
+    <div id="cart" class="page container hidden">
+        <div class="cart-header">
+            <h1>Your Shopping Cart</h1>
+            <p>Review your items before checkout</p>
         </div>
-        <div id="profile" class="page hidden"> <!-- Profile Page -->
-             <div class="profile-container">
-                 <h2>Profile</h2>
-                 <div class="profile-content">
-                    <div class="profile-picture">
-                        <img src="https://via.placeholder.com/150" alt="Profile Picture">
-                         <input type="file" id="profile-image-upload" style="display: none;">
-                         <label for="profile-image-upload" class="upload-icon">
-                           <i class="fas fa-camera"></i>
-                         </label>
-                     </div>
-                     <div class="profile-info">
-                        <p>Username: <span id="profileUsername"></span></p>
-                         <p>Email: <span id="profileEmail"></span></p>
-                         <div class="input-group">
-                             <label for="profileName">Full Name</label>
-                             <input type="text" id="profileName">
-                         </div>
-                         <div class="input-group">
-                             <label for="profilePhone">Phone Number</label>
-                             <input type="tel" id="profilePhone">
-                         </div>
-                         <div class="input-group">
-                             <label for="profileCampus">Campus</label>
-                             <input type="text" id="profileCampus">
-                         </div>
-                        <div class="input-group">
-                            <label for="profileHostel">Hostel</label>
-                            <input type="text" id="profileHostel">
-                        </div>
-                        <div class="input-group">
-                            <label for="profileAddress">Address</label>
-                            <input type="text" id="profileAddress">
-                        </div>
-                     </div>
-                 </div>
-                <button class="btn-update" id="update-profile-button">Update Profile</button>
-             </div>
-       </div>
-        <div id="settings" class="page hidden">
-             <div class="settings-container">
-                <h2>Settings</h2>
-                 <div class="form-container">
-                     <div class="input-group">
-                        <label for="oldPassword">Old Password</label>
-                        <input type="password" id="oldPassword">
+        <div class="cart-container">
+            <div class="cart-items">
+                <div class="cart-list"></div>
+            </div>
+            <div class="cart-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">₹0</span>
                     </div>
-                    <div class="input-group">
-                        <label for="newPassword">New Password</label>
-                        <input type="password" id="newPassword">
+                    <div class="summary-row">
+                        <span>Delivery</span>
+                        <span>FREE</span>
                     </div>
-                    <div class="input-group">
-                        <label for="confirmNewPassword">Confirm New Password</label>
-                        <input type="password" id="confirmNewPassword">
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="total">₹0</span>
                     </div>
-                     <button class="btn-update" id="update-password-button">Update Password</button>
-                     <button class="btn-cancel" id="cancel-password-button">Cancel</button>
                 </div>
-                 <button class="btn-delete" id="delete-account-button">Delete Account</button>
-             </div>
-         </div>
-        <div id="productDetails" class="page hidden"> <!-- Product Details Page -->
-         </div>
-
-         <div id="faqs" class="page hidden">
-             <div class="faqs-container"> <!-- FAQs Page -->
-                <h2>FAQs</h2>
-             </div>
-         </div>
-
-        <div id="safety" class="page hidden">
-             <div class="safety-container"> <!-- Safety Page -->
-                 <h2>Safety</h2>
+                <button class="btn-checkout" onclick="checkout()">
+                    <span class="btn-text">Proceed to Checkout</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
+                <button class="btn-continue" onclick="showPage('buy')">
+                    <span class="btn-text">Continue Shopping</span>
+                    <i class="fas fa-store btn-icon"></i>
+                </button>
             </div>
         </div>
+    </div>
 
-        <div id="contact" class="page hidden">
-            <div class="contact-container"> <!-- Contact Page -->
-                <h2>Contact</h2>
+    <!-- Information Pages -->
+    <div id="faqs" class="page container hidden">
+        <div class="info-page">
+            <h1>Frequently Asked Questions</h1>
+            <button class="btn-back" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+            <div class="info-content">
+                <div class="faq-item">
+                    <h3>How do I create an account?</h3>
+                    <p>Click on the "Sign Up" button in the top navigation and fill out the registration form with your details.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I list an item for sale?</h3>
+                    <p>After logging in, click on "Sell" in the navigation and fill out the product details form with images of your item.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do payments work?</h3>
+                    <p>Buyers and sellers arrange payment directly. We recommend using secure payment methods like UPI or cash on delivery.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is there a fee for using Student Mart?</h3>
+                    <p>No, Student Mart is completely free for students to buy and sell items within their campus.</p>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div id="privacy" class="page hidden">
-            <div class="privacy-container"> <!-- Privacy Page -->
-                 <h2>Privacy</h2>
+    <div id="safety" class="page container hidden">
+        <div class="info-page">
+            <h1>Safety Tips</h1>
+            <button class="btn-back" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+            <div class="info-content">
+                <div class="safety-tip">
+                    <h3>Meet in Public Places</h3>
+                    <p>Always meet buyers/sellers in well-lit, public areas on campus. Avoid meeting in private locations.</p>
+                </div>
+                <div class="safety-tip">
+                    <h3>Bring a Friend</h3>
+                    <p>Consider bringing a friend with you when meeting to complete a transaction.</p>
+                </div>
+                <div class="safety-tip">
+                    <h3>Inspect Items Carefully</h3>
+                    <p>Thoroughly inspect any item before purchasing to ensure it matches the description.</p>
+                </div>
+                <div class="safety-tip">
+                    <h3>Use Secure Payment Methods</h3>
+                    <p>Prefer UPI payments or cash on delivery. Avoid advance payments unless you trust the seller.</p>
+                </div>
             </div>
         </div>
-    </main><!-- End of Main Content Area -->
+    </div>
 
-    <footer>
-        <p>&copy; 2023 StudentMart. All rights reserved.</p>
-    </footer><script type="module" src="index.js"></script>
+    <div id="contact" class="page container hidden">
+        <div class="info-page">
+            <h1>Contact Us</h1>
+            <button class="btn-back" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+            <div class="info-content">
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>studentmart@gmail.com</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+91 7582875781</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Campus Office</h3>
+                    <p>Student Center, Room 206<br>University Campus</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="privacy" class="page container hidden">
+        <div class="info-page">
+            <h1>Privacy Policy</h1>
+            <button class="btn-back" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+            <div class="info-content">
+                <p>Student Mart is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information.</p>
+                
+                <h3>Information We Collect</h3>
+                <p>We collect information you provide when registering, listing items, or making purchases, including name, contact details, and transaction history.</p>
+                
+                <h3>How We Use Your Information</h3>
+                <p>Your information is used to facilitate transactions, improve our services, and communicate with you. We do not sell your data to third parties.</p>
+                
+                <h3>Data Security</h3>
+                <p>We implement security measures to protect your information, but no online system can guarantee absolute security.</p>
+                
+                <h3>Changes to This Policy</h3>
+                <p>We may update this policy periodically. Continued use of our services constitutes acceptance of the updated policy.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Page -->
+<div id="profile" class="page container hidden">
+    <div class="profile-header">
+        <button class="btn-back" onclick="showPage('home')">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <h1>Your Profile</h1>
+    </div>
+    
+    <div class="profile-container">
+        <div class="profile-sidebar">
+            <div class="profile-picture">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Picture">
+                <button class="btn-upload" onclick="document.getElementById('profileImageUpload').click()">
+                    <i class="fas fa-camera"></i> Change Photo
+                </button>
+                <input type="file" id="profileImageUpload" accept="image/*" hidden>
+            </div>
+            <h2 id="profileUsername">Jeetu Yadav</h2>
+            <p id="profileEmail">jeetuyadav@gmail.com</p>
+        </div>
+        
+        <div class="profile-content">
+            <div class="profile-section">
+                <h3><i class="fas fa-user"></i> Personal Information</h3>
+                <div class="form-group">
+                    <label for="profileName">Full Name</label>
+                    <input type="text" id="profileName" placeholder="Enter your full name">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="profilePhone">Phone Number</label>
+                    <input type="tel" id="profilePhone" placeholder="Enter your phone number">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="profileCampus">Campus</label>
+                    <input type="text" id="profileCampus" placeholder="Enter your campus">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="profileHostel">Hostel/Room Number</label>
+                    <input type="text" id="profileHostel" placeholder="Enter hostel/room details">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="profileAddress">Additional Address</label>
+                    <textarea id="profileAddress" placeholder="Enter your address"></textarea>
+                  </div>
+                  
+            
+            <button class="btn-primary" onclick="updateProfile()">
+                <i class="fas fa-save"></i> Save Changes
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Settings Page -->
+<div id="settings" class="page container hidden">
+    <div class="settings-header">
+        <button class="btn-back" onclick="showPage('home')">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <h1>Account Settings</h1>
+    </div>
+    
+    <div class="settings-container">
+        <div class="settings-section">
+            <h3><i class="fas fa-lock"></i> Security</h3>
+            <div class="setting-item">
+                <div>
+                    <h4>Change Password</h4>
+                    <p>Update your account password</p>
+                </div>
+                <button class="btn-secondary" onclick="showPasswordForm()">
+                    Change
+                </button>
+            </div>
+            
+            <div class="password-form hidden">
+                <div class="form-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword" placeholder="Enter current password">
+                  </div>
+                  <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" placeholder="Enter new password">
+                  </div>
+                  <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                  </div>
+                  
+                <button class="btn-primary" onclick="changePassword()">
+                    Update Password
+                </button>
+                <button class="btn-secondary" onclick="hidePasswordForm()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h3><i class="fas fa-bell"></i> Notifications</h3>
+            <div class="setting-item">
+                <div>
+                    <h4>Email Notifications</h4>
+                    <p>Receive updates via email</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="emailNotifications" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-item">
+                <div>
+                    <h4>Push Notifications</h4>
+                    <p>Get alerts on your device</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="pushNotifications" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="settings-section danger-zone">
+            <h3><i class="fas fa-exclamation-triangle"></i> Danger Zone</h3>
+            <div class="setting-item">
+                <div>
+                    <h4>Delete Account</h4>
+                    <p>Permanently remove your account and all data</p>
+                </div>
+                <button class="btn-danger" onclick="confirmDeleteAccount()">
+                    Delete Account
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script type="module" src="index.js"></script>
+
 </body>
+
 </html>
