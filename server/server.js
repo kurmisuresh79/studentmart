@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
+// ✅ Initialize Express App First
+const app = express();
+
 // CORS Middleware for Vercel
 app.use(cors({
   origin: 'https://studentmart.vercel.app',
@@ -11,13 +14,13 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.options('*', cors());
+app.use(express.json()); 
 
 // API Routes
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 const cartRoutes = require('./routes/cart');
-const app = express();
+
 
 // Start the server
 // const PORT = process.env.PORT || 5000;
@@ -25,13 +28,10 @@ const app = express();
 //     console.log(`🚀 Server running at http://localhost:${PORT}`);
 // });
 
-
-
-app.use(express.json());
-
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/", {
     dbName: 'studentmartDB' // Specify the database name here
@@ -39,6 +39,12 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/", {
   .catch(err => {
     console.error("MongoDB connection error:", err.message);
     process.exit(1); // Exit if DB connection fails
+});
+
+// ✅ Start Server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
 
 // Serve uploaded files
@@ -64,14 +70,14 @@ app.get('/', (req, res) => {
 // app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/", {
-    dbName: 'studentmartDB' // Specify the database name here
-  })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch(err => {
-    console.error("MongoDB connection error:", err.message);
-    process.exit(1); // Exit if DB connection fails
-  });
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/", {
+//     dbName: 'studentmartDB' // Specify the database name here
+//   })
+//   .then(() => console.log("Connected to MongoDB"))
+//   .catch(err => {
+//     console.error("MongoDB connection error:", err.message);
+//     process.exit(1); // Exit if DB connection fails
+//   });
   
 
 // // Routes
