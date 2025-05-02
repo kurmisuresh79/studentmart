@@ -3,6 +3,16 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
+// CORS Middleware for Vercel
+app.use(cors({
+  origin: 'https://studentmart.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+app.options('*', cors());
+
 // API Routes
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
@@ -10,16 +20,12 @@ const cartRoutes = require('./routes/cart');
 const app = express();
 
 // Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => {
+//     console.log(`🚀 Server running at http://localhost:${PORT}`);
+// });
 
-// CORS Middleware for Vercel
-app.use(cors({
-    origin: 'https://studentmart.vercel.app',
-    credentials: true
-}));
+
 
 app.use(express.json());
 
