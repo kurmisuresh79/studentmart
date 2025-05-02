@@ -8,14 +8,10 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- <link rel="icon" href="favicon.ico"> -->
-    <!-- <link rel="preload" href="index.css" as="style"> -->
-    <!-- <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"> -->
-<!-- <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style"> -->
 </head>
 <body>
     <div id="home-page" class="page">
+
         <!-- Home page content -->
     </div>
     <div id="products-page" class="page">
@@ -27,10 +23,8 @@
     <div id="profile-page" class="page">
         <!-- Profile page content -->
     </div>
-    <!-- onload="showPage('home')" -->
     <!-- Loading Screen -->
-   <!-- Replace loading screen div with -->
-   <div class="loading-screen">
+    <div class="loading-screen">
     <div class="loader"></div>
     <p>Loading Student Mart...</p>
 </div>
@@ -51,19 +45,15 @@
                     <i class="fas fa-shopping-cart"></i> Cart
                     <span class="cart-count">0</span>
                 </a>
-          <!-- In your navigation bar (replace the auth-buttons div) -->
-          <div class="auth-buttons">
+                <div class="auth-buttons">
                 <button class="btn-login" onclick="showPage('login')">Login</button>
                 <button class="btn-signup" onclick="showPage('register')">Sign Up</button>
         </div>
-
-
             </div>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-    </nav>
 
     <!-- Login Page -->
     <div id="login" class="page container hidden">
@@ -74,23 +64,17 @@
                 <p>Login to access your account</p>
             </div>
             <div class="form-group">
-                <i class="fas fa-user"></i>
-                <type="text" 
-                id="username" 
-                name="username" 
-                placeholder="Username" 
-                autocomplete="username" 
-                required>
+                <i class="fas fa-user"></i><input type="text" id="username" name="username" placeholder="Username" autocomplete="username" required>
             </div>
             <div class="form-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="password" placeholder="Password" required>
+                <i class="fas fa-lock"></i><input type="password" id="password" placeholder="Password" required>
             </div>
             <div id="login-error" class="error-message hidden"></div>
             <button class="btn-primary" onclick="login()">
                 <span class="btn-text">Login</span>
                 <i class="fas fa-arrow-right btn-icon"></i>
             </button>
+
            <div class="social-login">
                 <p>Or login with</p>
                 <!-- <div class="social-icons">
@@ -102,9 +86,7 @@
                         <i class="fab fa-facebook-f"></i>
                     </div>
                 </div>
-            </div>
             <p class="signup-link">Don't have an account? <a href="#" onclick="showPage('register')">Sign up</a></p>
-        </div>
     </div>
         
     <!-- Registration Page -->
@@ -116,21 +98,18 @@
                 <p>Join our student community</p>
             </div>
             <div class="form-group">
-                <i class="fas fa-user"></i>
-                <input type="text" id="regUsername" placeholder="Username" required>
+                <i class="fas fa-user"></i><input type="text" id="regUsername" placeholder="Username" required>
             </div>
             <div class="form-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="regEmail" placeholder="Email" required>
+                <i class="fas fa-envelope"></i><input type="email" id="regEmail" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="regPassword" placeholder="Password" required>
+                <i class="fas fa-lock"></i><input type="password" id="regPassword" placeholder="Password" required>
             </div>
             <div class="form-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="regConfirmPassword" placeholder="Confirm Password" required>
+                <i class="fas fa-lock"></i><input type="password" id="regConfirmPassword" placeholder="Confirm Password" required>
             </div>
+
             <button class="btn-primary" onclick="register()">
                 <span class="btn-text">Register</span>
                 <i class="fas fa-user-plus btn-icon"></i>
@@ -308,10 +287,8 @@
                     <h3>Stay Updated</h3>
                     <p>Subscribe to our newsletter for campus deals and updates.</p>
                     <div class="newsletter-form">
-                        <input type="email" name="email" id="email" type="email" placeholder="Your email address" autocomplete="email">
-                        <input/>
-
-                        <button class="btn-subscribe">Subscribe</button>
+                        <input type="email" name="email" id="email" placeholder="Your email address" autocomplete="email">
+                        <button class="btn-subscribe"><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
@@ -585,10 +562,7 @@
             <div class="profile-section">
                 <h3><i class="fas fa-user"></i> Personal Information</h3>
                 <div class="form-group">
-                    <label for="profileName">Full Name</label>
-                    <input type="text" id="profileName" placeholder="Enter your full name">
-                  </div>
-                  
+                    <label for="profileName">Full Name</label><input type="text" id="profileName" placeholder="Enter your full name"></div>
                   <div class="form-group">
                     <label for="profilePhone">Phone Number</label>
                     <input type="tel" id="profilePhone" placeholder="Enter your phone number">
@@ -608,9 +582,8 @@
                     <label for="profileAddress">Additional Address</label>
                     <textarea id="profileAddress" placeholder="Enter your address"></textarea>
                   </div>
-                  
-            
             <button class="btn-primary" onclick="updateProfile()">
+
                 <i class="fas fa-save"></i> Save Changes
             </button>
         </div>
@@ -641,17 +614,13 @@
             
             <div class="password-form hidden">
                 <div class="form-group">
-                    <label for="currentPassword">Current Password</label>
-                    <input type="password" id="currentPassword" placeholder="Enter current password">
-                  </div>
-                  <div class="form-group">
-                    <label for="newPassword">New Password</label>
-                    <input type="password" id="newPassword" placeholder="Enter new password">
-                  </div>
-                  <div class="form-group">
-                    <label for="confirmPassword">Confirm New Password</label>
-                    <input type="password" id="confirmPassword" placeholder="Confirm new password">
-                  </div>
+                    <label for="currentPassword">Current Password</label><input type="password" id="currentPassword" placeholder="Enter current password"></div>
+                <div class="form-group">
+                    <label for="newPassword">New Password</label><input type="password" id="newPassword" placeholder="Enter new password"></div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label><input type="password" id="confirmPassword" placeholder="Confirm new password"></div>
+
+
                   
                 <button class="btn-primary" onclick="changePassword()">
                     Update Password
@@ -703,7 +672,6 @@
 </div>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script type="module" src="index.js"></script>
 
 </body>
 
